@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -9,13 +15,12 @@ import Register from "./Components/register";
 import Home from "./Components/home";
 import Profile from "./Components/profile";
 
-import { logout } from "./actions/auth";
-import { clearMessage } from "./actions/message";
+import { logout } from "./Actions/auth";
+import { clearMessage } from "./Actions/message";
 
-import { history } from "./helpers/history";
+import { history } from "./Helpers/history";
 
 export default function App() {
-
   const { user: currentUser } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
@@ -29,7 +34,7 @@ export default function App() {
     dispatch(logout());
   };
 
-   return (
+  return (
     <Router history={history}>
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
@@ -83,16 +88,14 @@ export default function App() {
         </nav>
 
         <div className="container mt-3">
-          <Switch>
-            <Route exact path={["/", "/home"]} component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/profile" component={Profile} />
-            
-          </Switch>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/register" element={<Register />} />
+            <Route exact path="/profile" element={<Profile />} />
+          </Routes>
         </div>
       </div>
     </Router>
-  );
   );
 }
