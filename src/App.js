@@ -14,6 +14,7 @@ import Login from "./Components/login";
 import Register from "./Components/register";
 import Home from "./Components/home";
 import Profile from "./Components/profile";
+import Photos from "./ClassComponents/Photos";
 
 import { logout } from "./Actions/auth";
 import { clearMessage } from "./Actions/message";
@@ -45,6 +46,11 @@ export default function App() {
             <li className="nav-item">
               <Link to={"/home"} className="nav-link">
                 Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/photos"} className="nav-link">
+                Photos
               </Link>
             </li>
 
@@ -93,6 +99,7 @@ export default function App() {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/register" element={<Register />} />
             <Route exact path="/profile" element={<Profile />} />
+            <Route exact path="/photos" element={<Photos />} />
           </Routes>
         </div>
       </div>
