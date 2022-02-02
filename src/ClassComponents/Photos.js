@@ -1,6 +1,7 @@
 import React from "react";
 import { fetchPicturesByKeyword } from "../Helpers/fetch";
 import SearchBar from "./SearchBar";
+import PhotoList from "./PhotoList";
 
 class Photos extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class Photos extends React.Component {
   }
   state = {
     inputValue: "",
-    photos: null
+    photos: []
   };
 
   handleChange(e) {
@@ -36,23 +37,6 @@ class Photos extends React.Component {
     });
   }
 
-  renderPhotos() {
-    console.log("photos : ", this.state.photos);
-
-    return (
-      this.state.photos &&
-      this.state?.photos?.map((photo) => (
-        <div className="container my-3" key={photo.id}>
-          <img
-            className="rounded img-fluid"
-            src={photo?.urls?.full}
-            alt={photo?.alt_description}
-          />
-        </div>
-      ))
-    );
-  }
-
   render() {
     return (
       <>
@@ -61,7 +45,7 @@ class Photos extends React.Component {
           handleChange={this.handleChange}
           inputValue={this.state.inputValue}
         />
-        {this.renderPhotos()}
+        <PhotoList photos={this.state.photos} />
       </>
     );
   }
