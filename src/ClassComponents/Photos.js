@@ -60,7 +60,7 @@ class Photos extends React.Component {
             <div className="form-inline">
               <input
                 type="text"
-                className="form-control mx-2"
+                className="form-control mr-2"
                 id="keyword"
                 aria-describedby="keyword"
                 placeholder="Enter text"
