@@ -1,5 +1,6 @@
 import React from "react";
 import { fetchPicturesByKeyword } from "../Helpers/fetch";
+import SearchBar from "./SearchBar";
 
 class Photos extends React.Component {
   constructor(props) {
@@ -55,25 +56,11 @@ class Photos extends React.Component {
   render() {
     return (
       <>
-        <div class="container">
-          <form onSubmit={(e) => this.handleSubmit(e)}>
-            <div className="form-inline">
-              <input
-                type="text"
-                className="form-control mr-2"
-                id="keyword"
-                aria-describedby="keyword"
-                placeholder="Enter text"
-                value={this.state.inputValue}
-                onChange={this.handleChange}
-              />
-              <button type="button" className="btn btn-primary">
-                Primary
-              </button>
-            </div>
-          </form>
-        </div>
-
+        <SearchBar
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          inputValue={this.state.inputValue}
+        />
         {this.renderPhotos()}
       </>
     );
