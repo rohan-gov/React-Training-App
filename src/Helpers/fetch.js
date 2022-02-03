@@ -17,11 +17,11 @@ export const fetchYoutubeVideos = async (query) => {
   const URL = "https://www.googleapis.com/youtube/v3/search";
   const response = await axios.get(URL, {
     params: {
-      maxResults: 25,
+      maxResults: 5,
       part: "snippet",
       type: "video",
       q: query,
-      key: "AIzaSyADNmHixHQkyaH9wf-IxDEVomYaXV2RODM"
+      key: "AIzaSyBhjJTAltAGiA4-jtGMT_nzr-lfZSZF0MM"
     }
   });
 };

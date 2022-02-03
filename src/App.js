@@ -15,6 +15,7 @@ import Register from "./Components/register";
 import Home from "./Components/home";
 import Profile from "./Components/profile";
 import Photos from "./ClassComponents/Photos";
+import Videos from "./ClassComponents/Videos";
 
 import { logout } from "./Actions/auth";
 import { clearMessage } from "./Actions/message";
@@ -53,7 +54,11 @@ export default function App() {
                 Photos
               </Link>
             </li>
-
+            <li className="nav-item">
+              <Link to={"/videos"} className="nav-link">
+                Videos
+              </Link>
+            </li>
             {currentUser && (
               <li className="nav-item">
                 <Link to={"/user"} className="nav-link">
@@ -100,6 +105,7 @@ export default function App() {
             <Route exact path="/register" element={<Register />} />
             <Route exact path="/profile" element={<Profile />} />
             <Route exact path="/photos" element={<Photos />} />
+            <Route exact path="/videos" element={<Videos />} />
           </Routes>
         </div>
       </div>
